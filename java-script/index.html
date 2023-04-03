@@ -6,14 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function hello() {
-            alert("Working perfectly.");
+        let number = 0;
+        function count() {
+            number ++;
+            alert(number);
+            
+        }
+        /* in javascript, === triple equal sign checks the strict equality. 
+        it means, not only those are same, but also wether they are same data type or no */
+        function toggle(){
+            if(document.querySelector('h2').innerHTML === 'Hello')
+            {
+                document.querySelector('h2').innerHTML = 'Goodbye!';
+            }
+            else {
+                document.querySelector('h2').innerHTML = 'Hello';
+            }
+        }
+
+        /* here in the following function, we are assigning a html tag to a variable calle selected */
+
+        function toggle1(){
+            let selected = document.querySelector('h3');
+            if(selected.innerHTML === 'First option')
+            {
+                selected.innerHTML = 'This is the second one'
+            } else {
+                selected.innerHTML = 'First option'
+            }
         }
         
     </script>
 </head>
 <body>
-    <h1>Hello world</h1>
-    <button onclick="hello()">Click Here</button>
+    <h1>Press the button to count</h1>
+    <button onclick="count()">Count</button>
+    <br>
+    <!-- first section -->
+    <h2>Hello</h2>
+    <button onclick="toggle()">Toggle</button>
+    <!-- second section 
+     as we did in the first section, here we can do the same with a variable -->
+
+    <h3>First option</h3>
+    <button onclick="toggle1()">Toggle1</button>
+
 </body>
 </html>
