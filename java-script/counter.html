@@ -16,10 +16,24 @@
                 alert(`Count is now ${number}.`)
             }
         }
+        /*Here we are going to encounter an error as dom structure isn't completely processed by browser.
+        so, browser can't find the button and it returnes null. so, to solve this issue, we can either move
+        the script to all the way down after body or do the following javascript solution.*/
+
+        document.addEventListener('DOMContentLoaded',function(){
+            document.querySelector('button').onclick = count;
+            /* we can use the same addEventListener here too, but as it's complecated when compared to 
+            the above method, we are not using it */
+            /*
+                document.querySelector('button').addEventListener('click',count)
+            */
+        })
+        /*document.querySelector('button').onclick = count;*/
+        
     </script>
 </head>
 <body>
     <h1>0</h1>
-    <button onclick="count()">Count</button>
+    <button>Count</button>
 </body>
 </html>
