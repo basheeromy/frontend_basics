@@ -27,7 +27,7 @@
         /* here in the following function, we are assigning a html tag to a variable calle selected */
 
         function toggle1(){
-            let selected = document.querySelector('h3');
+            const selected = document.querySelector('h3');
             if(selected.innerHTML === 'First option')
             {
                 selected.innerHTML = 'This is the second one'
@@ -35,7 +35,10 @@
                 selected.innerHTML = 'First option'
             }
         }
-        
+        /* in the above given function, we used const to declare the variable selected. 
+        but, as we are assigning the html tag h3 to the variable, here we can reassign the value, 
+        but, if we are assigning the value got from .innerHTML function, we can't reassign the value as the message is constant.
+        here , h3 element is constant, but the value inside the h3 tag is changing, we are assigning h3 variable in to const variable.*/ 
     </script>
 </head>
 <body>
