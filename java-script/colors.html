@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colours</title>
     <script>
-        document.addEventListener('DOMContentLoaded', function(){
+        document.addEventListener('DOMContentLoaded',() => {
 
             // to make the title red
-            document.querySelectorAll('button').forEach(function(button) {
-                button.onclick = function(){
+            document.querySelectorAll('button').forEach(button => {
+                button.onclick = () =>{
                     document.querySelector('h1').style.color = button.dataset.color;
                 }
             })
