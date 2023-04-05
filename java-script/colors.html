@@ -9,26 +9,18 @@
         document.addEventListener('DOMContentLoaded', function(){
 
             // to make the title red
-            document.querySelector('#red').onclick = function(){
-                document.querySelector('h1').style.color = 'red';
-            }
-
-            // to make the title green
-            document.querySelector('#green').onclick = function(){
-                document.querySelector('h1').style.color = 'green';
-            }
-
-             // to make the title blue
-             document.querySelector('#blue').onclick = function(){
-                document.querySelector('h1').style.color = 'blue';
-            }
+            document.querySelectorAll('button').forEach(function(button) {
+                button.onclick = function(){
+                    document.querySelector('h1').style.color = button.dataset.color;
+                }
+            })
         })
     </script>
 </head>
-<body id="body">
+<body>
     <h1>Color Wall</h1>
-    <button id="red">Red</button>
-    <button id="green">Green</button>
-    <button id="blue">Blue</button>
+    <button data-color="red">Red</button>
+    <button data-color="green">Green</button>
+    <button data-color="blue">Blue</button>
 </body>
 </html>
