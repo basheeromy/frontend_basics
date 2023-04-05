@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <script>
+        // waiting to finish completion of DOM loading
+
+        document.addEventListener('DOMContentLoaded', function(){
+            // set submit button disabled until something got written in the input box
+            document.querySelector('#submit').disabled = true;
+
+            // enable submit button if something got typed in the input field and not deleted completely
+            document.querySelector('#taskInput').onkeyup = () => {
+                if(document.querySelector('#taskInput').value.length > 0){
+                    document.querySelector('#submit').disabled = false;
+                } else {
+                    document.querySelector('#submit').disabled = true;
+                }
+            }
+
+            document.querySelector('form').onsubmit = () => {
+                // assign value got from user to a variable
+                const task = document.querySelector('#taskInput').value;
+
+                // use createElement function to create a new element
+                const li = document.createElement('li');
+
+                // insert data into new element created
+                li.innerHTML = task;
+
+                // insert the element to another element already exist in html file
+                document.querySelector('#list').append(li);
+
+                // clear input field
+                document.querySelector('#taskInput').value = '';
+
+                //disable submit button
+                document.querySelector('#submit').disabled = true;
+
+                // to avoid form submision
+                return false;
+                
+            }
+            
+        })
+    </script>
+</head>
+<body>
+    <h1>To do list</h1>
+    <ul id="list">
+    </ul>
+    <form>
+        <input type="text" id="taskInput">
+        <input type="submit" id='submit'>
+    </form>
+</body>
+</html>
